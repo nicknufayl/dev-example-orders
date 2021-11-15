@@ -3,7 +3,7 @@ var mariadb = require('mariadb');
 require('dotenv').config();
 
 // Retrieve the Certificate Authority chain file (using the File System package)
-//const fs = require("fs");
+const fs = require("fs");
 //const serverCert = [fs.readFileSync("skysql_chain.pem", "utf8")];
 
 // Create a connection pool
@@ -14,7 +14,8 @@ var pools = [
     password: process.env.DB_PASS_1,
     port: process.env.DB_PORT_1,
     database: process.env.DB_NAME_1,
-    multipleStatements: true
+    multipleStatements: tru,
+    connectionLimit: 5
     /*,
     ssl: {
       ca: serverCert
